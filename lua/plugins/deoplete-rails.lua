@@ -1,0 +1,3 @@
+return {
+	"etordera/deoplete-rails",
+}

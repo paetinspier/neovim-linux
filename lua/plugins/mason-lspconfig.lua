@@ -12,7 +12,7 @@ return {
 				ensure = {
 					"lua_ls",
 					"ts_ls",
-					"ruff",
+					"pylsp",
 					"rust_analyzer",
 					"clangd",
 					"tailwindcss",
@@ -24,6 +24,7 @@ return {
 					"cssls",
 					"sqls",
 					"pyright",
+					"ruby_lsp",
 				},
 			})
 		end,
@@ -42,10 +43,46 @@ return {
 			-- LSPs
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.ts_ls.setup({ capabilities = capabilities })
-			lspconfig.ruff.setup({ capabilities = capabilities })
+			lspconfig.pylsp.setup({ capabilities = capabilities })
 			lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 			lspconfig.clangd.setup({ capabilities = capabilities })
-			lspconfig.tailwindcss.setup({ capabilities = capabilities })
+
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+				filetypes = {
+					"html",
+					"erb",
+					"eruby",
+					"html.erb",
+					"javascript",
+					"javascriptreact",
+					"typescript",
+					"typescriptreact",
+					"jsx",
+					"tsx",
+				},
+				init_options = {
+					userLanguages = {
+						eruby = "html",
+						erb = "html",
+					},
+				},
+				settings = {
+					tailwindCSS = {
+						includeLanguages = {
+							eruby = "html",
+							erb = "html",
+						},
+						experimental = {
+							classRegex = {
+								'class\\s*=\\s*"([^"]*)', -- matches: class="..."
+								"class\\s*=\\s*'([^']*)", -- matches: class='...'
+							},
+						},
+					},
+				},
+			})
+
 			lspconfig.gopls.setup({ capabilities = capabilities })
 			lspconfig.html.setup({ capabilities = capabilities })
 			lspconfig.java_language_server.setup({ capabilities = capabilities })
@@ -61,7 +98,11 @@ return {
 			lspconfig.typescript_language_server.setup({ capabilities = capabilities })
 			lspconfig.cssls.setup({ capabilities = csslsCapabilities })
 			lspconfig.sqls.setup({})
-			lspconfig.pyright.setup({})
+			lspconfig.pyright.setup({ capabilities = capabilities })
+			lspconfig.ruby_lsp.setup({
+				capabilities = capabilities,
+				cmd = { vim.fn.expand("~/.rbenv/shims/ruby-lsp") },
+			})
 
 			-- keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
