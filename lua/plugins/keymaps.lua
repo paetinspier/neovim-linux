@@ -9,7 +9,7 @@ return {
 	vim.keymap.set("n", "<leader>pa", ":Anchor PullAnchor<CR>"),
 	vim.keymap.set("n", "<leader>la", ":Anchor LocateAnchor<CR>"),
 	-- Explore and conquer
-	vim.keymap.set("n", "<leader>e", ":Explore<CR>"),
+	-- vim.keymap.set("n", "<leader>e", ":Explore<CR>"),
 	-- Delete buffers
 	vim.keymap.set("n", "<leader>bd", ":bd<CR>"),
 	-- BuffAssNav
