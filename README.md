@@ -16,7 +16,9 @@
 
 #### tmux
 
-fix color issue
+.tmux.conf:
+
+/# fix color issue
 
 set -g default-terminal "screen-256color"
 set -as terminal-features ",xterm-256color:RGB"
@@ -35,7 +37,7 @@ bind-key j select-pane -D
 bind-key k select-pane -U
 bind-key l select-pane -R
 
-Set new panes to open in current directory
+/# Set new panes to open in current directory
 
 bind c new-window -c "#{pane_current_path}"
 bind '"' split-window -c "#{pane_current_path}"
@@ -47,7 +49,7 @@ setw -g pane-base-index 1
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 
-theme
+/# theme
 
 set -g status-style bg=default
 set -g status-fg "#ebcb8b"
