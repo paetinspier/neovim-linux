@@ -45,7 +45,7 @@ return {
 		end
 		require("lualine").setup({
 			options = {
-				theme = "tokyonight-moon",
+				theme = "terafox",
 			},
 			sections = {
 				lualine_a = { "mode" },
