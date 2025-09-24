@@ -2,7 +2,7 @@ return {
 	-- Just kidding
 	vim.keymap.set("i", "jk", "<Esc>"),
 	-- Yank to clip
-	vim.keymap.set("v", "yyy", '"+y'),
+	vim.keymap.set("v", "y", '"+y'),
 	-- Ahoy !!!
 	vim.keymap.set("n", "<leader>da", ":Anchor DropAnchor<CR>"),
 	vim.keymap.set("n", "<leader>ra", ":Anchor RemoveAnchor<CR>"),
